@@ -3,7 +3,12 @@ project(CUDA CUDA)
 
 set(CMAKE_CUDA_STANDARD 11)
 
-add_executable(CUDA main.cu)
+add_executable(add_numbers main.cu)
 
-set_target_properties(CUDA PROPERTIES
+set_target_properties(add_numbers PROPERTIES
+        CUDA_SEPARABLE_COMPILATION ON)
+
+add_executable(gpu_info gpu_info.cu)
+
+set_target_properties(gpu_info PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
