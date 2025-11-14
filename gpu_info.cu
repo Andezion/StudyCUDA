@@ -36,7 +36,7 @@ int main()
         cudaDeviceGetAttribute(&memBusWidth, cudaDevAttrGlobalMemoryBusWidth, dev);
         std::cout << "Memory Bus Width: " << memBusWidth << " bits" << std::endl;
 
-        float memBandwidth = 2.0f * memClockRate * (memBusWidth / 8) / 1.0e6f;
+        float memBandwidth = 2.0f * static_cast<float>(memClockRate) * (memBusWidth / 8.0) / 1.0e6f;
         std::cout << "Memory Bandwidth: " << memBandwidth << " GB/s" << std::endl;
 
         std::cout << "Compute Capability: " << deviceProp.major << "." << deviceProp.minor << std::endl;
