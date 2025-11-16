@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cuda_runtime.h>
 
-__global__ void add(int a, int b, int *c)
+__global__ void add(const int a, const int b, int *c)
 {
     printf("Thread %d in block %d: %d + %d = %d\n", 
            threadIdx.x, blockIdx.x, a, b, a + b);
@@ -18,7 +18,7 @@ int main()
     std::cout << "Enter second number: ";
     std::cin >> b;
     
-    cudaMalloc((void**)&dev_c, sizeof(int));
+    cudaMalloc(reinterpret_cast<void **>(&dev_c), sizeof(int));
 
     add<<<1, 1>>>(a, b, dev_c);
 

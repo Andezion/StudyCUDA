@@ -21,7 +21,7 @@ int main()
 
         std::cout << "Number of SMs: " << deviceProp.multiProcessorCount << std::endl;
 
-        std::cout << "Total global memory: " << deviceProp.totalGlobalMem / (1024*1024) << " MB" << std::endl;
+        std::cout << "Total global memory: " << deviceProp.totalGlobalMem / (1024 * 1024) << " MB" << std::endl;
         std::cout << "Shared memory per block: " << deviceProp.sharedMemPerBlock / 1024 << " KB" << std::endl;
 
         int clockRate;
