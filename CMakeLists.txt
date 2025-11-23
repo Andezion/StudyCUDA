@@ -15,6 +15,10 @@ add_executable(gpu_info gpu_info.cu)
 set_target_properties(gpu_info PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
 
+add_executable(check_error check_errors.cu)
+set_target_properties(check_error PROPERTIES
+        CUDA_SEPARABLE_COMPILATION ON)
+
 
 
 
