@@ -21,6 +21,14 @@ __global__ void mul( const int *a, const int *b, int *c)
 
 int main()
 {
+
+    cudaEvent_t start, stop;
+    float elapsedTime;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+    cudaEventRecord(start, nullptr);
+
+
     int a, b, c;
 
     int *dev_a, *dev_b, *dev_c;
@@ -43,5 +51,14 @@ int main()
     cudaFree( dev_a );
     cudaFree( dev_b );
     cudaFree( dev_c );
+
+
+    cudaEventRecord(stop,nullptr);
+    cudaEventSynchronize(stop);
+    cudaEventElapsedTime(&elapsedTime, start, stop);
+    printf("\nTime spent executing by the GPU: %.2fmillseconds\n", elapsedTime);
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
+
     return 0;
 }
