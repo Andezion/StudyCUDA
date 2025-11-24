@@ -30,7 +30,7 @@ __global__ void zetaKernel(double *partial_sums, const long long n, const double
     partial_sums[idx] = sum;
 }
 
-__global__ void reduceSumZeta(double *data, int n)
+__global__ void reduceSumZeta(double *data, const int n)
 {
     extern __shared__ double sdata[];
 
@@ -193,8 +193,8 @@ int main()
     clock_t cpu_end = clock();
     double cpuTime = 1000.0 * (cpu_end - cpu_start) / CLOCKS_PER_SEC;
 
-    printf("GPU (n=%lld): Z(2) = %.15f (time: %.3f ms)\n", n, zetaGPU, gpuTime);
-    printf("CPU (n=%lld): Z(2) = %.15f (time: %.3f ms)\n", n_cpu, zetaCPU, cpuTime);
+    printf("GPU (n = %lld): Z(2) = %.15f (time: %.3f ms)\n", n, zetaGPU, gpuTime);
+    printf("CPU (n = %lld): Z(2) = %.15f (time: %.3f ms)\n", n_cpu, zetaCPU, cpuTime);
     printf("Exact: Z(2) = pi^2/6 = %.15f\n", M_PI * M_PI / 6.0);
     printf("Acceleration: ~%.1fx\n", cpuTime * 10 / gpuTime);
 

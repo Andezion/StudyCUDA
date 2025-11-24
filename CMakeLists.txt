@@ -23,6 +23,9 @@ add_executable(riemann_zeta riemann_zeta_function.cu)
 set_target_properties(riemann_zeta PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
 
+add_executable(pi_solver pi_solver.cu)
+set_target_properties(pi_solver PROPERTIES
+        CUDA_SEPARABLE_COMPILATION ON)
 
 
 
