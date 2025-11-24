@@ -19,6 +19,10 @@ add_executable(check_error check_errors.cu)
 set_target_properties(check_error PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
 
+add_executable(riemann_zeta riemann_zeta_function.cu)
+set_target_properties(riemann_zeta PROPERTIES
+        CUDA_SEPARABLE_COMPILATION ON)
+
 
 
 
