@@ -27,5 +27,9 @@ add_executable(pi_solver pi_solver.cu)
 set_target_properties(pi_solver PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
 
+add_executable(atomic atomic_test.cu)
+set_target_properties(atomic PROPERTIES
+        CUDA_SEPARABLE_COMPILATION ON)
+
 
 
